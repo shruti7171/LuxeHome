@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LuxeHome - Complete Project & Technical Interview Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap');
+
+  @page {
+    size: A4;
+    margin: 15mm 14mm 15mm 14mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+    line-height: 1.55;
+    font-size: 12.5px;
+  }
+
+  .cover-page {
+    page-break-after: always;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(217, 119, 6, 0.2);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+    border-radius: 9999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #ffffff, #e0e7ff, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .cover-subtitle {
+    font-size: 16.5px;
+    color: #cbd5e1;
+    max-width: 650px;
+    margin-bottom: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .cover-meta-item {
+    font-size: 11.5px;
+  }
+
+  .cover-meta-label {
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 9.5px;
+    letter-spacing: 0.5px;
+  }
+
+  .cover-meta-value {
+    color: #f8fafc;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .section {
+    margin-bottom: 24px;
+    page-break-inside: auto;
+  }
+
+  .section-break {
+    page-break-before: always;
+  }
+
+  h1.section-heading {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h1.section-heading::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background: linear-gradient(180deg, #d97706, #4f46e5);
+    border-radius: 3px;
+  }
+
+  h2.sub-heading {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 9px;
+    color: #334155;
+  }
+
+  ul, ol {
+    margin-left: 18px;
+    margin-bottom: 10px;
+    color: #334155;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .highlight-box {
+    background: #f8fafc;
+    border-left: 4px solid #4f46e5;
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #1e293b;
+  }
+
+  .highlight-box.gold {
+    border-left-color: #d97706;
+    background: #fffbeb;
+  }
+
+  .highlight-box.emerald {
+    border-left-color: #059669;
+    background: #ecfdf5;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    page-break-inside: avoid;
+  }
+
+  .card-title {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+  }
+
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-gold { background: #fef3c7; color: #92400e; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-purple { background: #f3e8ff; color: #6b21a8; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+    font-size: 11.5px;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    padding: 7px 9px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+  }
+
+  th {
+    background: #f1f5f9;
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  pre, code {
+    font-family: 'Fira Code', Consolas, Monaco, monospace;
+    font-size: 11px;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    page-break-inside: avoid;
+  }
+
+  p code, li code, td code {
+    background: #f1f5f9;
+    color: #be185d;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .qa-block {
+    margin-bottom: 11px;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    page-break-inside: avoid;
+  }
+
+  .qa-question {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 12.5px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 7px;
+  }
+
+  .qa-q-badge {
+    background: #4f46e5;
+    color: #ffffff;
+    font-size: 9.5px;
+    font-weight: 800;
+    padding: 1px 5px;
+    border-radius: 3px;
+    height: fit-content;
+  }
+
+  .qa-answer {
+    color: #334155;
+    font-size: 11.5px;
+    line-height: 1.5;
+    padding-left: 26px;
+  }
+
+  .qa-answer strong {
+    color: #0f172a;
+  }
+
+  .diagram-box {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: 'Fira Code', monospace;
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: #0f172a;
+    white-space: pre;
+    overflow-x: auto;
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+  }
+
+  .footer-note {
+    text-align: center;
+    font-size: 10.5px;
+    color: #94a3b8;
+    margin-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+  <div class="cover-badge">Ultimate Interview & Technical Handbook</div>
+  <div class="cover-title">LuxeHome</div>
+  <div class="cover-subtitle">Full-Stack Luxury Home Services Platform Architecture, Implementation, Cloud Deployment, and Complete 60+ Technical Interview Q&A</div>
+  
+  <div class="cover-grid">
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Project Type</div>
+      <div class="cover-meta-value">Full-Stack Web App (React 19 + Express + MySQL)</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Architecture</div>
+      <div class="cover-meta-value">Single-Origin Unified SPA + RESTful API</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">GitHub Repository</div>
+      <div class="cover-meta-value">github.com/shruti7171/LuxeHome</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Cloud Deployment</div>
+      <div class="cover-meta-value">Render (Web Service) + TiDB Serverless (Cloud MySQL)</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Authentication & Security</div>
+      <div class="cover-meta-value">Bcrypt Hashing (10 rounds) + RBAC + Audit Logging</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="cover-meta-label">Target Role</div>
+      <div class="cover-meta-value">Full-Stack Developer / Frontend & Backend Engineer</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: ELEVATOR PITCH -->
+<div class="section">
+  <h1 class="section-heading">1. The 2-Minute High-Impact Interview Elevator Pitch</h1>
+  
+  <div class="highlight-box gold">
+    <strong>How to Deliver this Pitch in an Interview:</strong> Speak with clarity and confidence. Structure your answer in three distinct phases: (1) The Problem & Product Overview, (2) The Full-Stack Technical Architecture, and (3) Production Engineering & Impact.
+  </div>
+
+  <div class="card" style="margin-bottom: 14px;">
+    <p><strong>"LuxeHome is a full-stack luxury home services web application</strong> designed to streamline on-demand premium home maintenance—including Deep Cleaning, Interior Design, HVAC, Smart Security, Garden Care, and Plumbing.</p>
+    
+    <p><strong>On the frontend,</strong> I built a high-performance Single Page Application using <strong>React 19, Vite, and custom CSS with luxury Glassmorphism styling</strong>. It features responsive state-driven client routing, dynamic service catalog filtering, real-time booking modals, and distinct role-based experiences for clients and administrators.</p>
+
+    <p><strong>On the backend,</strong> I engineered a robust <strong>Node.js and Express RESTful API</strong> backed by a <strong>MySQL relational database</strong> (and cloud-compatible TiDB Serverless). The backend handles secure credential hashing using <strong>bcryptjs</strong>, connection pooling with <code>mysql2/pool</code>, audit logging for security events, automated schema migrations on startup, and role-based access control for administrative actions.</p>
+
+    <p><strong>For production,</strong> I structured the app as a unified deployment where Express serves the optimized React production bundle from <code>dist/</code> alongside all <code>/api</code> endpoints. The codebase is version-controlled on GitHub and deployed to <strong>Render Web Services</strong> with automated builds, environment configurations, and SSL-encrypted database connections. I also built an automated 7-step test suite that programmatically validates health checks, catalog fetching, client signup/login, booking creation, and admin status updates."</p>
+  </div>
+</div>
+
+<!-- SECTION 2: SYSTEM ARCHITECTURE -->
+<div class="section section-break">
+  <h1 class="section-heading">2. Complete System Architecture & Data Flow</h1>
+
+  <div class="diagram-box">
++-----------------------------------------------------------------------------------+
+|                              CLIENT BROWSER (Vite SPA)                           |
+|  [AuthPage]  <-->  [HomePage]  <-->  [Category Catalog]  <-->  [ServiceDetailPage] |
+|       |                                                             |             |
+|       +---------------------> [MyBookingsPage] <--------------------+             |
+|       |                                                                           |
+|       +---------------------> [AdminDashboard] (RBAC Gate)                       |
++----------------------------------------+------------------------------------------+
+                                         | HTTP / REST (Fetch API with JSON)
+                                         v
++-----------------------------------------------------------------------------------+
+|                         UNIFIED EXPRESS SERVER (Node.js)                          |
+|  - CORS & JSON Body Parsing Middleware                                            |
+|  - Static SPA Asset Handler: express.static('../dist') + Catch-all Fallback       |
+|  - RBAC Auth Middleware: requireAdmin (evaluates 'x-user-role')                   |
+|  - RESTful Endpoints: /api/signup, /api/login, /api/categories, /api/services,     |
+|                       /api/bookings, /api/users, /api/health                      |
++----------------------------------------+------------------------------------------+
+                                         | Connection Pool (mysql2/promise/pool)
+                                         | Parameterized SQL Queries (?)
+                                         v
++-----------------------------------------------------------------------------------+
+|                       RELATIONAL DATABASE (MySQL / TiDB Cloud)                    |
+|  +--------------+       +--------------+       +-------------+       +---------+  |
+|  |  categories  |<----->|   services   |<----->|  bookings   |<----->|  users  |  |
+|  +--------------+       +--------------+       +-------------+       +---------+  |
+|                                                       |              |login_logs| |
+|                                                       v              +---------+  |
+|                                       [Audit Trail & Status Updates]              |
++-----------------------------------------------------------------------------------+
+  </div>
+
+  <h2 class="sub-heading">End-to-End Client & Admin Flow Breakdown</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title"><span class="badge badge-blue">Flow 1</span> Client User Journey</div>
+      <ol style="font-size: 11.5px; margin-left: 14px;">
+        <li><strong>Registration/Login:</strong> User submits credentials on <code>AuthPage</code>. Express hashes/verifies password with bcrypt and records log in <code>login_logs</code>.</li>
+        <li><strong>Browsing:</strong> Client views categories on <code>HomePage</code> and clicks into specific category views (e.g. <code>CleaningPage</code>, <code>HVACPage</code>).</li>
+        <li><strong>Booking:</strong> Client selects service, opens <code>ServiceDetailPage</code>, and submits booking. Express writes record to <code>bookings</code> with status <code>'Pending'</code>.</li>
+        <li><strong>Tracking:</strong> Client opens <code>MyBookingsPage</code> to view history or cancel bookings.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="badge badge-gold">Flow 2</span> Admin Control Journey</div>
+      <ol style="font-size: 11.5px; margin-left: 14px;">
+        <li><strong>Admin Login:</strong> Admin logs in with <code>admin</code> credentials. App sets state role to <code>'admin'</code> and navigates directly to <code>AdminDashboard</code>.</li>
+        <li><strong>Dashboard Analytics:</strong> Overview tab dynamically computes Total Bookings, Pending Counts, Active Clients, and Total Revenue.</li>
+        <li><strong>Booking Moderation:</strong> Admin transitions statuses (Pending &rarr; Confirmed &rarr; Completed &rarr; Cancelled) or deletes records.</li>
+        <li><strong>Catalog CRUD:</strong> Admin adds new service packages with category ID, descriptions, duration, and price tags.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: TECH STACK JUSTIFICATIONS -->
+<div class="section section-break">
+  <h1 class="section-heading">3. Technologies Used & Architectural Justifications</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 18%;">Technology</th>
+        <th style="width: 16%;">Layer</th>
+        <th>Why It Was Chosen & Technical Advantages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>React 19</strong></td>
+        <td>Frontend UI</td>
+        <td>Provides declarative UI rendering, efficient virtual DOM diffing, composable components, and state-driven routing without page reloads.</td>
+      </tr>
+      <tr>
+        <td><strong>Vite 8</strong></td>
+        <td>Frontend Build Tool</td>
+        <td>Delivers lightning-fast Hot Module Replacement (HMR), Native ES Module bundling with Rollup under the hood, and ultra-compact production chunks.</td>
+      </tr>
+      <tr>
+        <td><strong>Node.js & Express 4</strong></td>
+        <td>Backend REST API</td>
+        <td>Asynchronous event-driven I/O model handles concurrent requests efficiently. Lightweight routing allows unified SPA serving alongside REST API endpoints.</td>
+      </tr>
+      <tr>
+        <td><strong>MySQL 8 / TiDB Cloud</strong></td>
+        <td>Database Layer</td>
+        <td>Enforces relational data integrity, foreign key cascading constraints (<code>ON DELETE CASCADE</code> / <code>SET NULL</code>), ACID transaction support, and scalable SQL queries.</td>
+      </tr>
+      <tr>
+        <td><strong>mysql2 Pool</strong></td>
+        <td>Database Driver</td>
+        <td>Implements connection pooling (reuse connections up to 10 limit), preventing connection exhaustion and drastically reducing query latency.</td>
+      </tr>
+      <tr>
+        <td><strong>bcryptjs</strong></td>
+        <td>Security / Hashing</td>
+        <td>Implements one-way adaptive key-derivation hashing with salt rounds (cost factor 10), immune to rainbow table attacks and pre-computed hash lookup.</td>
+      </tr>
+      <tr>
+        <td><strong>Glassmorphism CSS</strong></td>
+        <td>Design System</td>
+        <td>Handcrafted vanilla CSS utilizing <code>backdrop-filter: blur(12px)</code>, gold-indigo gradients, and responsive CSS grids for a bespoke luxury aesthetic with zero third-party CSS overhead.</td>
+      </tr>
+      <tr>
+        <td><strong>Render Web Services</strong></td>
+        <td>Cloud Hosting</td>
+        <td>Native Node runtime, automated Git CI/CD triggers on push, automatic HTTPS certificate provisioning, and flexible environment variable injection.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 4: DATABASE SCHEMA -->
+<div class="section section-break">
+  <h1 class="section-heading">4. Database Schema & Relational Structure</h1>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Table: <code>categories</code></div>
+      <p style="font-size: 11px; color: #64748b;">Stores high-level luxury service categories.</p>
+      <table>
+        <tr><th>Column</th><th>Type</th><th>Key / Constraint</th></tr>
+        <tr><td><code>id</code></td><td>INT</td><td>PRIMARY KEY, AUTO_INCREMENT</td></tr>
+        <tr><td><code>name</code></td><td>VARCHAR(255)</td><td>NOT NULL</td></tr>
+        <tr><td><code>slug</code></td><td>VARCHAR(255)</td><td>UNIQUE, NOT NULL</td></tr>
+        <tr><td><code>description</code></td><td>TEXT</td><td>NULL</td></tr>
+        <tr><td><code>image_url</code></td><td>VARCHAR(511)</td><td>NULL</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Table: <code>services</code></div>
+      <p style="font-size: 11px; color: #64748b;">Stores individual service packages linked to categories.</p>
+      <table>
+        <tr><th>Column</th><th>Type</th><th>Key / Constraint</th></tr>
+        <tr><td><code>id</code></td><td>INT</td><td>PRIMARY KEY, AUTO_INCREMENT</td></tr>
+        <tr><td><code>category_id</code></td><td>INT</td><td>FOREIGN KEY &rarr; categories(id) ON DELETE CASCADE</td></tr>
+        <tr><td><code>title</code></td><td>VARCHAR(255)</td><td>NOT NULL</td></tr>
+        <tr><td><code>description</code></td><td>TEXT</td><td>Short summary</td></tr>
+        <tr><td><code>full_description</code></td><td>TEXT</td><td>Long detail</td></tr>
+        <tr><td><code>price</code></td><td>VARCHAR(50)</td><td>Display price</td></tr>
+        <tr><td><code>duration</code></td><td>VARCHAR(100)</td><td>Estimated time</td></tr>
+        <tr><td><code>image_url</code></td><td>VARCHAR(511)</td><td>Service thumbnail</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">Table: <code>users</code></div>
+      <p style="font-size: 11px; color: #64748b;">Stores user credentials, hashed passwords, and system roles.</p>
+      <table>
+        <tr><th>Column</th><th>Type</th><th>Key / Constraint</th></tr>
+        <tr><td><code>id</code></td><td>INT</td><td>PRIMARY KEY, AUTO_INCREMENT</td></tr>
+        <tr><td><code>username</code></td><td>VARCHAR(255)</td><td>UNIQUE, NOT NULL</td></tr>
+        <tr><td><code>email</code></td><td>VARCHAR(255)</td><td>UNIQUE, NOT NULL</td></tr>
+        <tr><td><code>password_hash</code></td><td>VARCHAR(255)</td><td>NOT NULL (Bcrypt)</td></tr>
+        <tr><td><code>role</code></td><td>VARCHAR(50)</td><td>DEFAULT 'client'</td></tr>
+        <tr><td><code>created_at</code></td><td>TIMESTAMP</td><td>DEFAULT CURRENT_TIMESTAMP</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Table: <code>bookings</code></div>
+      <p style="font-size: 11px; color: #64748b;">Stores client reservation orders and lifecycle status.</p>
+      <table>
+        <tr><th>Column</th><th>Type</th><th>Key / Constraint</th></tr>
+        <tr><td><code>id</code></td><td>INT</td><td>PRIMARY KEY, AUTO_INCREMENT</td></tr>
+        <tr><td><code>user_id</code></td><td>INT</td><td>User identifier</td></tr>
+        <tr><td><code>service_id</code></td><td>INT</td><td>FOREIGN KEY &rarr; services(id) ON DELETE SET NULL</td></tr>
+        <tr><td><code>service_title</code></td><td>VARCHAR(255)</td><td>Preserved title</td></tr>
+        <tr><td><code>user_email</code></td><td>VARCHAR(255)</td><td>Client email</td></tr>
+        <tr><td><code>booking_date</code></td><td>TIMESTAMP</td><td>DEFAULT CURRENT_TIMESTAMP</td></tr>
+        <tr><td><code>status</code></td><td>VARCHAR(50)</td><td>DEFAULT 'Pending'</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top: -4px;">
+    <div class="card-title">Table: <code>login_logs</code> (Security Audit Trail)</div>
+    <p style="font-size: 11px; color: #64748b;">Tracks all authentication attempts for fraud prevention and security audits.</p>
+    <table>
+      <tr><th>Column</th><th>Type</th><th>Description</th></tr>
+      <tr><td><code>id</code></td><td>INT AUTO_INCREMENT PRIMARY KEY</td><td>Unique log entry ID</td></tr>
+      <tr><td><code>username</code></td><td>VARCHAR(255) NOT NULL</td><td>Target username/email attempted</td></tr>
+      <tr><td><code>status</code></td><td>VARCHAR(50) NOT NULL</td><td><code>'SUCCESS'</code> or <code>'FAILED'</code></td></tr>
+      <tr><td><code>ip_address</code></td><td>VARCHAR(45)</td><td>Client remote IP address (IPv4 / IPv6)</td></tr>
+      <tr><td><code>login_time</code></td><td>TIMESTAMP</td><td>Timestamp of authentication attempt</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 5: COMPLETE API SPECIFICATION -->
+<div class="section section-break">
+  <h1 class="section-heading">5. Complete REST API Specifications & Contracts</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">Method</th>
+        <th style="width: 26%;">Endpoint</th>
+        <th style="width: 14%;">Auth Required</th>
+        <th>Purpose & Payload Contract</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/health</code></td>
+        <td>None</td>
+        <td>Health check endpoint returning <code>{ status: 'healthy', environment: 'production' }</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">POST</span></td>
+        <td><code>/api/signup</code></td>
+        <td>None</td>
+        <td>Registers new client. Body: <code>{ username, email, password }</code>. Returns <code>{ message, userId }</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">POST</span></td>
+        <td><code>/api/login</code></td>
+        <td>None</td>
+        <td>Authenticates client or admin. Body: <code>{ email, username, password }</code>. Returns <code>{ message, user: { id, username, email, role } }</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/categories</code></td>
+        <td>None</td>
+        <td>Returns array of all 6 category objects with slugs, descriptions, and hero images.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/services</code></td>
+        <td>None</td>
+        <td>Returns all services joined with category name: <code>SELECT s.*, c.name FROM services s JOIN categories c...</code></td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/services/:slug</code></td>
+        <td>None</td>
+        <td>Returns services belonging to category slug (e.g. <code>'cleaning'</code>, <code>'interior'</code>).</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">POST</span></td>
+        <td><code>/api/bookings</code></td>
+        <td>Client</td>
+        <td>Creates booking. Body: <code>{ user_id, service_id, service_title, user_email }</code>. Returns <code>{ bookingId }</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/bookings/user/:userId</code></td>
+        <td>Client</td>
+        <td>Returns client-specific bookings ordered by <code>booking_date DESC</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/bookings</code></td>
+        <td><span class="badge badge-red">Admin Only</span></td>
+        <td>Returns all bookings across all clients. Requires header <code>x-user-role: admin</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-purple">PUT</span></td>
+        <td><code>/api/bookings/:id</code></td>
+        <td><span class="badge badge-red">Admin Only</span></td>
+        <td>Updates booking status. Body: <code>{ status: 'Confirmed' }</code>. Handled via parameterized SQL.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-red">DELETE</span></td>
+        <td><code>/api/bookings/:id</code></td>
+        <td>Client / Admin</td>
+        <td>Cancels or deletes a booking record from the database.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">POST</span></td>
+        <td><code>/api/services</code></td>
+        <td><span class="badge badge-red">Admin Only</span></td>
+        <td>Adds new service catalog item. Body: <code>{ category_id, title, description, price, duration... }</code>.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/users</code></td>
+        <td><span class="badge badge-red">Admin Only</span></td>
+        <td>Returns all registered users with sanitized fields (excludes password hashes).</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">GET</span></td>
+        <td><code>/api/login-logs</code></td>
+        <td><span class="badge badge-red">Admin Only</span></td>
+        <td>Returns latest 50 security login logs with status, timestamp, and client IP.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 6: AUTHENTICATION & SECURITY -->
+<div class="section section-break">
+  <h1 class="section-heading">6. Authentication, Authorization & Security Engineering</h1>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">1. Bcrypt Password Hashing</div>
+      <p style="font-size: 11.5px;">Passwords are never stored in plaintext. During registration, the plain string is hashed with 10 salt rounds:</p>
+      <pre><code>// Registration Hashing
+const saltRounds = 10;
+const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+// Login Verification
+const isMatch = await bcrypt.compare(
+  password, 
+  user.password_hash
+);</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="card-title">2. Role-Based Access Control (RBAC)</div>
+      <p style="font-size: 11.5px;">Administrative endpoints are protected at the middleware level using a custom <code>requireAdmin</code> gatekeeper:</p>
+      <pre><code>const requireAdmin = (req, res, next) => {
+  const role = req.headers['x-user-role'];
+  if (role === 'admin') {
+    next();
+  } else {
+    res.status(403).json({ 
+      error: 'Access denied. Admins only.' 
+    });
+  }
+};</code></pre>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">3. SQL Injection Prevention</div>
+      <p style="font-size: 11.5px;">All database queries use parameterized placeholders (<code>?</code>) provided by <code>mysql2</code>. User inputs are treated strictly as literals, completely thwarting SQL injection exploits:</p>
+      <pre><code>// SAFE: Parameterized Query
+const sql = 'SELECT * FROM users WHERE email = ?';
+db.query(sql, [email], (err, rows) => { ... });</code></pre>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4. Security Audit Logging</div>
+      <p style="font-size: 11.5px;">Every authentication attempt (successful or failed) writes an immutable record to <code>login_logs</code> with client IP and timestamp for intrusion detection:</p>
+      <pre><code>const logSql = `INSERT INTO login_logs 
+  (username, status, ip_address) 
+  VALUES (?, ?, ?)`;
+db.query(logSql, [user, status, req.ip]);</code></pre>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: PROJECT-SPECIFIC TECHNICAL Q&A (PART 1) -->
+<div class="section section-break">
+  <h1 class="section-heading">7. 60+ Project-Specific Technical Interview Q&A</h1>
+
+  <h2 class="sub-heading">Category A: React, Frontend Architecture & State Management (Q1 - Q15)</h2>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q1</span> How is routing implemented in LuxeHome without using React Router DOM?</div>
+    <div class="qa-answer"><strong>Answer:</strong> LuxeHome uses a clean <strong>State-Driven Navigation Pattern</strong> managed in <code>App.jsx</code> via <code>currentPage</code> and <code>previousPage</code> state variables. When a user clicks a navigation link or service, state setters (e.g. <code>goToCleaning()</code>, <code>goToDetail()</code>) update <code>currentPage</code> and trigger conditional rendering of specific page components while scrolling the window to <code>(0,0)</code>. This reduces external bundle dependencies and ensures seamless SPA transitions.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q2</span> How do you prevent an unauthenticated user or client from viewing the Admin Dashboard on the frontend?</div>
+    <div class="qa-answer"><strong>Answer:</strong> In <code>App.jsx</code>, there is an explicit state-based guard: <code>if (isLoggedIn &amp;&amp; currentPage === 'admin' &amp;&amp; user?.role !== 'admin') { setCurrentPage('home'); }</code>. Furthermore, if <code>isLoggedIn</code> is false, the app unconditionally returns <code>&lt;AuthPage onLogin={handleLogin} /&gt;</code>. Even if a user attempts to bypass frontend rendering, all backend admin endpoints verify the <code>x-user-role: admin</code> header.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q3</span> How does the frontend dynamically adapt its API base URL between local development and production?</div>
+    <div class="qa-answer"><strong>Answer:</strong> In <code>src/config/api.js</code>, <code>API_BASE_URL</code> is computed dynamically. If <code>import.meta.env.VITE_API_URL</code> is defined, it uses that URL; in local development (<code>import.meta.env.DEV</code>), it defaults to <code>http://localhost:5000</code>; in unified production builds, it defaults to an empty string <code>''</code>, causing all <code>fetch()</code> calls to use relative paths (e.g. <code>/api/categories</code>) on the same origin.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q4</span> How does <code>AdminDashboard.jsx</code> calculate business metrics like Total Revenue and Pending Bookings?</div>
+    <div class="qa-answer"><strong>Answer:</strong> When <code>fetchData()</code> loads bookings into component state, JavaScript array methods process the metrics in real time. Total Bookings is <code>bookings.length</code>; Pending Bookings filters <code>b.status === 'Pending'</code>; Total Revenue parses the numeric price strings from booked services (e.g. extracting digits from <code>"$129"</code>) and sums them across non-cancelled bookings.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q5</span> How does <code>MyBookingsPage.jsx</code> handle booking cancellations?</div>
+    <div class="qa-answer"><strong>Answer:</strong> When the client clicks "Cancel", it prompts a confirmation dialog. Upon confirmation, it sends a <code>DELETE /api/bookings/:id</code> request. If the server returns HTTP 200, <code>fetchBookings()</code> re-queries the user's booking list and re-renders the table, giving instant UI feedback.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q6</span> Why did you use custom Vanilla CSS with Glassmorphism instead of TailwindCSS or Bootstrap?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Luxury home service branding demands a bespoke, high-end visual identity. Handcrafted CSS with backdrop filters (<code>backdrop-filter: blur(12px)</code>), subtle borders (<code>rgba(255,255,255,0.08)</code>), and refined gold/indigo gradients creates an exclusive aesthetic without the generic utility classes and overhead of large UI frameworks.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q7</span> How does <code>ServiceDetailPage.jsx</code> prevent duplicate simultaneous bookings if a user clicks rapidly?</div>
+    <div class="qa-answer"><strong>Answer:</strong> During the booking submission, <code>bookingStatus</code> state is set to <code>'Booking...'</code>. The "Book Now" button disables itself while <code>bookingStatus === 'Booking...'</code>, preventing multiple concurrent API dispatches.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q8</span> What is the purpose of passing <code>selectedService</code> and <code>fromPage</code> to <code>goToDetail</code>?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Passing <code>selectedService</code> populates the detail view with the exact clicked package data. Passing <code>fromPage</code> (e.g. <code>'cleaning'</code> or <code>'hvac'</code>) allows the "Back" button on the detail page to return the user to the exact catalog category they were browsing rather than losing context.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q9</span> How are form inputs managed in the Admin Service creation modal?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Form inputs are controlled components tied to <code>serviceFormData</code> state object. Change handlers update state via <code>setServiceFormData({ ...serviceFormData, [e.target.name]: e.target.value })</code>, ensuring two-way data binding and input validation before dispatching <code>POST /api/services</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q10</span> What lifecycle hook is used for initial data fetching across pages?</div>
+    <div class="qa-answer"><strong>Answer:</strong> React's <code>useEffect</code> hook with an empty dependency array <code>[]</code> is used in <code>AdminDashboard</code>, <code>HomePage</code>, and <code>MyBookingsPage</code> to trigger asynchronous <code>fetch()</code> calls immediately after component mount.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q11</span> How does <code>AuthPage.jsx</code> switch between Login and Sign Up modes?</div>
+    <div class="qa-answer"><strong>Answer:</strong> It maintains an <code>isSignUp</code> boolean state. When toggled, the form dynamically alters headings, shows/hides the username field, and changes the submission endpoint between <code>/api/login</code> and <code>/api/signup</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q12</span> How does the UI handle loading states while waiting for API responses?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Components maintain a <code>loading</code> boolean state initialized to <code>true</code> during data fetch. The JSX renders a clean <code>&lt;div className="loading"&gt;Loading...&lt;/div&gt;</code> element until the promise resolves and <code>setLoading(false)</code> is invoked in the <code>finally</code> block.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q13</span> How does the UI display error states when network requests fail?</div>
+    <div class="qa-answer"><strong>Answer:</strong> <code>try...catch</code> blocks catch network errors and update an <code>error</code> string state. If <code>error</code> is truthy, an error alert banner is rendered at the top of the interface.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q14</span> How are date strings from MySQL formatted in the user interface?</div>
+    <div class="qa-answer"><strong>Answer:</strong> The helper function <code>formatDate(dateString)</code> converts MySQL ISO/UTC timestamp strings into localized, human-friendly formats using JavaScript's <code>Intl</code> / <code>toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q15</span> How does the React app handle component unmounting and memory leaks?</div>
+    <div class="qa-answer"><strong>Answer:</strong> All state setters inside asynchronous operations are guarded or cleaned up, preventing React state updates on unmounted component trees.</div>
+  </div>
+</div>
+
+<!-- SECTION 8: TECHNICAL Q&A (PART 2: BACKEND & DATABASE) -->
+<div class="section section-break">
+  <h1 class="section-heading">8. Technical Q&A: Backend, Database & APIs (Q16 - Q40)</h1>
+
+  <h2 class="sub-heading">Category B: Node.js, Express & RESTful APIs (Q16 - Q30)</h2>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q16</span> How does the Express server serve both the frontend React app and backend REST API from a single port?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Express mounts static middleware pointing to the Vite build directory: <code>app.use(express.static(distDir))</code>. All API routes are prefixed with <code>/api/*</code>. A catch-all route <code>app.get('*', (req, res) => res.sendFile(path.join(distDir, 'index.html')))</code> intercepts any non-API client route and serves <code>index.html</code>, allowing the client-side app to initialize seamlessly on any URL.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q17</span> What is Connection Pooling in <code>mysql2</code> and why is it superior to <code>mysql.createConnection</code>?</div>
+    <div class="qa-answer"><strong>Answer:</strong> <code>mysql.createConnection</code> opens a new TCP connection per query/user and closes it, which incurs heavy SSL/TCP handshake latency and crashes under concurrent traffic. <code>mysql.createPool</code> maintains a pool of 10 persistent connections that are reused across incoming HTTP requests, boosting throughput and preventing database connection exhaustion.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q18</span> How does <code>server.js</code> dynamically parse database configuration from both <code>DATABASE_URL</code> and individual environment variables?</div>
+    <div class="qa-answer"><strong>Answer:</strong> <code>getDbConfig()</code> checks if <code>process.env.DATABASE_URL</code> exists. If present, it parses the URL using the Node.js <code>URL</code> class, extracts <code>hostname</code>, <code>port</code>, <code>username</code>, <code>password</code>, and <code>pathname</code>, and enables SSL. If not present, it gracefully falls back to <code>DB_HOST</code>, <code>DB_USER</code>, <code>DB_PASSWORD</code>, and <code>DB_NAME</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q19</span> How does the automated database initializer (<code>initDatabase()</code>) work on server startup?</div>
+    <div class="qa-answer"><strong>Answer:</strong> On boot, Express acquires a connection from the pool and executes <code>CREATE TABLE IF NOT EXISTS</code> queries in sequence for <code>categories</code>, <code>services</code>, <code>users</code>, <code>login_logs</code>, and <code>bookings</code>. It then checks if the default admin exists, hashing <code>'1234'</code> and seeding it if absent, and populates the 6 luxury service categories if empty.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q20</span> Why is <code>ON DELETE CASCADE</code> used for <code>services.category_id</code> while <code>ON DELETE SET NULL</code> is used for <code>bookings.service_id</code>?</div>
+    <div class="qa-answer"><strong>Answer:</strong> If an entire Category is deleted, all child Services under it are invalid and should cascade delete (<code>ON DELETE CASCADE</code>). However, if an individual Service is discontinued or deleted, existing historical client Bookings must <strong>not</strong> be destroyed—they remain intact for accounting and auditing with <code>service_id = NULL</code> and preserved <code>service_title</code> (<code>ON DELETE SET NULL</code>).</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q21</span> How does the login endpoint support authentication via both Email AND Username?</div>
+    <div class="qa-answer"><strong>Answer:</strong> The query checks: <code>SELECT * FROM users WHERE email = ? OR username = ? LIMIT 1</code>. This gives users the flexibility to log in with either their registered email address or their username using a single input.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q22</span> What HTTP status codes are returned by the API and what do they signify?</div>
+    <div class="qa-answer"><strong>Answer:</strong> 
+      <ul>
+        <li><code>200 OK</code>: Successful query / status update / fetch.</li>
+        <li><code>201 Created</code>: Successful user registration or booking creation.</li>
+        <li><code>400 Bad Request</code>: Missing required body fields (e.g. missing username or password).</li>
+        <li><code>401 Unauthorized</code>: Incorrect password or non-existent user.</li>
+        <li><code>403 Forbidden</code>: Access denied (non-admin attempting admin endpoints).</li>
+        <li><code>404 Not Found</code>: Resource ID not found.</li>
+        <li><code>500 Internal Server Error</code>: Database connection or SQL query error.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q23</span> How does Express parse incoming JSON request bodies?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Using the built-in middleware <code>app.use(express.json())</code>, which intercepts incoming requests with <code>Content-Type: application/json</code>, parses the raw stream buffer into a JavaScript object, and attaches it to <code>req.body</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q24</span> How is CORS configured for both local development and production environments?</div>
+    <div class="qa-answer"><strong>Answer:</strong> The CORS middleware checks <code>process.env.CORS_ORIGIN</code>. If set to specific domains (e.g. <code>https://your-frontend.vercel.app</code>), it validates the origin against an allowed array; if unset or <code>*</code>, it allows all origins with full support for methods <code>GET, POST, PUT, DELETE, OPTIONS</code> and headers <code>Content-Type, Authorization, x-user-role</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q25</span> What happens if the MySQL database is temporarily unavailable during an API call?</div>
+    <div class="qa-answer"><strong>Answer:</strong> The connection pool returns an error in the query callback (<code>err</code>). Express intercepts this and returns an HTTP 500 JSON response: <code>res.status(500).json({ error: err.message })</code>, preventing the Node process from crashing.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q26</span> How does <code>PUT /api/bookings/:id</code> update booking status safely?</div>
+    <div class="qa-answer"><strong>Answer:</strong> It extracts <code>status</code> from <code>req.body</code> and <code>id</code> from <code>req.params</code>, executes <code>UPDATE bookings SET status = ? WHERE id = ?</code> with parameterized inputs, and checks <code>results.affectedRows</code>. If 0, it returns 404; otherwise 200.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q27</span> How do you prevent sensitive fields (like <code>password_hash</code>) from leaking in <code>GET /api/users</code>?</div>
+    <div class="qa-answer"><strong>Answer:</strong> The query explicitly selects only public columns: <code>SELECT id, username, email, role, created_at FROM users</code>. <code>password_hash</code> is omitted from the projection.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q28</span> How are services retrieved together with their category names in a single SQL query?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Using an inner JOIN: <code>SELECT s.*, c.name as category_name FROM services s JOIN categories c ON s.category_id = c.id</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q29</span> Why is <code>dotenv</code> configured to check both <code>backend/.env</code> and root <code>.env</code>?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Developers may run the backend independently from <code>backend/</code> or from the workspace root. Checking <code>fs.existsSync(path.join(__dirname, '.env'))</code> ensures environment variables are loaded regardless of current working directory.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q30</span> How does <code>server.js</code> handle graceful port binding for cloud platforms like Render?</div>
+    <div class="qa-answer"><strong>Answer:</strong> It binds to <code>const PORT = process.env.PORT || 5000;</code>. Render dynamically injects its assigned listening port into <code>process.env.PORT</code> (typically 10000), allowing the server to bind correctly.</div>
+  </div>
+</div>
+
+<!-- SECTION 9: DEPLOYMENT, SECURITY & DEVOPS Q&A -->
+<div class="section section-break">
+  <h1 class="section-heading">9. Technical Q&A: Deployment, Security & DevOps (Q31 - Q50)</h1>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q31</span> What is the build and start workflow configured in <code>render.yaml</code> for Render deployment?</div>
+    <div class="qa-answer"><strong>Answer:</strong> 
+      <ul>
+        <li><strong>Build Command:</strong> <code>npm install &amp;&amp; npm run build</code> &rarr; Installs all dependencies and compiles the React SPA into <code>dist/</code> using Vite.</li>
+        <li><strong>Start Command:</strong> <code>npm start</code> &rarr; Executes <code>node backend/server.js</code>, which boots Express, initializes database tables, and serves static files.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q32</span> Why did we move backend dependencies to the root <code>package.json</code> for Render deployment?</div>
+    <div class="qa-answer"><strong>Answer:</strong> In standard cloud PaaS like Render, the default build process executes <code>npm install</code> at the repository root. If backend dependencies (Express, mysql2, cors, bcryptjs) are isolated only inside <code>backend/package.json</code>, Render will not install them at root, causing runtime <code>MODULE_NOT_FOUND</code> crashes on <code>npm start</code>. Adding them to root dependencies enables a single-command unified install.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q33</span> What is TiDB Cloud Serverless and why is it ideal for MySQL cloud deployments?</div>
+    <div class="qa-answer"><strong>Answer:</strong> TiDB Serverless is a fully managed, MySQL 8.0-compatible distributed cloud database. It auto-scales to zero when idle (free tier), supports native TLS/SSL connections, and accepts standard MySQL drivers (<code>mysql2</code>) without modifying SQL queries.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q34</span> Why is SSL configuration (<code>{ rejectUnauthorized: false }</code>) required for cloud MySQL connections?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Cloud database providers enforce encrypted TLS connections over the public internet. Setting <code>rejectUnauthorized: false</code> allows the Node.js TLS client to establish secure SSL tunnels even if the cloud provider's intermediate CA bundle is not installed in the local system trust store.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q35</span> How does <code>verify_deployment.js</code> / <code>test_production_url.js</code> programmatically validate deployment?</div>
+    <div class="qa-answer"><strong>Answer:</strong> It executes 7 automated integration tests in sequence: (1) Health check, (2) SPA root HTML serving, (3) Catalog queries, (4) User registration & login, (5) Booking creation & retrieval, (6) Admin authentication, and (7) Admin status updates. It exits with code 0 on complete pass.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q36</span> Why should production passwords and database credentials never be committed to Git?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Committing credentials exposes them to repository scrapers and unauthorized users. In LuxeHome, <code>.env</code> is added to <code>.gitignore</code>, and secrets are injected securely via Render's cloud Environment Variables manager.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q37</span> What is a Rainbow Table attack and how does bcrypt prevent it?</div>
+    <div class="qa-answer"><strong>Answer:</strong> A rainbow table is a pre-computed lookup table of plaintext passwords and their corresponding cryptographic hashes (e.g. MD5/SHA256). Bcrypt generates a random cryptographic salt for every password before hashing. Because the salt is unique, pre-computed hashes are useless against bcrypt.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q38</span> What is the purpose of the <code>login_logs</code> table?</div>
+    <div class="qa-answer"><strong>Answer:</strong> It provides a security audit trail. By recording <code>username</code>, <code>status</code> (SUCCESS/FAILED), <code>ip_address</code>, and <code>login_time</code>, system administrators can detect brute-force attacks, credential stuffing, and unusual geographic login anomalies.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q39</span> How does the application handle Cross-Site Scripting (XSS) prevention?</div>
+    <div class="qa-answer"><strong>Answer:</strong> React automatically escapes all string expressions rendered in JSX before inserting them into the DOM, preventing injection of malicious <code>&lt;script&gt;</code> tags.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q40</span> How does Git version control enable safe CI/CD on Render?</div>
+    <div class="qa-answer"><strong>Answer:</strong> Render connects via GitHub Webhooks. When code is pushed to <code>main</code>, Render detects the commit, triggers a fresh build with <code>npm install &amp;&amp; npm run build</code>, and swaps the running process with zero downtime.</div>
+  </div>
+</div>
+
+<!-- SECTION 10: TRICKY INTERVIEW QUESTIONS & HR SCENARIOS -->
+<div class="section section-break">
+  <h1 class="section-heading">10. Tricky Questions, HR Scenarios & System Scalability (Q41 - Q60+)</h1>
+
+  <h2 class="sub-heading">Category D: Tricky & Edge-Case Engineering Questions (Q41 - Q50)</h2>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q41</span> "How would you prevent double bookings if two clients try to book the exact same service and time slot simultaneously?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> In the current implementation, bookings are recorded with timestamps. To enforce strict non-overlapping slots, I would: (1) Add <code>booking_slot_start</code> and <code>booking_slot_end</code> datetime columns, (2) Add a unique compound index on <code>(service_id, booking_slot_start)</code>, and (3) Wrap the insert in an ACID transaction with <code>SELECT ... FOR UPDATE</code> to lock the row and reject concurrent overlapping inserts.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q42</span> "Why did you choose a custom role header (<code>x-user-role</code>) instead of JWT tokens for this version?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> For the initial production milestone, using <code>x-user-role</code> combined with state-driven route guards provided a streamlined, low-overhead RBAC implementation. For the next phase, I have planned a migration to signed JSON Web Tokens (JWT) stored in <code>HttpOnly, Secure</code> cookies with short expiry (15m) and refresh token rotation.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q43</span> "What happens if a user navigates directly to <code>/admin</code> in their browser URL bar?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> The Express catch-all handler returns <code>index.html</code>. React mounts and checks authentication state. Since state initializes with <code>isLoggedIn: false</code>, the user is redirected to the Login page. If an unauthenticated client logs in, <code>App.jsx</code> verifies <code>user.role !== 'admin'</code> and forces navigation to <code>home</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q44</span> "How would you scale the LuxeHome database if traffic grows from 1,000 to 1,000,000 requests per day?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> 
+      <ol style="font-size: 11px; margin-left: 14px;">
+        <li><strong>Read Caching with Redis:</strong> Cache catalog categories and service listings in Redis with a 1-hour TTL since catalog data is read-heavy and changes infrequently.</li>
+        <li><strong>Read/Write Replicas:</strong> Route write operations (signups, bookings) to a Primary MySQL master and distribute read queries across read replicas.</li>
+        <li><strong>Database Indexing:</strong> Add B-Tree indexes on <code>bookings(user_id)</code>, <code>bookings(status)</code>, and <code>services(category_id)</code>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q45</span> "How would you integrate real-time notifications for clients when their booking status changes?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> I would integrate <strong>Socket.io / WebSockets</strong> on the Express server. When an Admin updates a booking via <code>PUT /api/bookings/:id</code>, the server emits a <code>booking_status_updated</code> event to the specific client's WebSocket room (<code>room_userId</code>), updating their screen instantly without page refresh.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q46</span> "What is the difference between synchronous and asynchronous operations in Node.js?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> Synchronous operations (e.g. <code>fs.readFileSync</code>) block the single-threaded Node.js event loop until completion, halting all concurrent user requests. Asynchronous operations (e.g. <code>db.query</code>, <code>fetch</code>, <code>bcrypt.hash</code>) offload I/O tasks to the libuv thread pool, allowing the event loop to continue serving incoming HTTP requests without blocking.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q47</span> "Why did you use <code>TIMESTAMP DEFAULT CURRENT_TIMESTAMP</code> for booking dates?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> It delegates timestamp generation to the database server's internal clock rather than client machines. This guarantees synchronized, tamper-proof ordering across global timezones.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q48</span> "What was the most challenging bug you faced during development and how did you resolve it?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> Resolving the SPA routing mismatch in unified production. Locally, Vite handled routes, but on the production Express server, refreshing any nested path returned 404 because Express looked for a physical file. I solved this by adding an Express catch-all route (<code>app.get('*')</code>) that checks if the request path starts with <code>/api</code> (returning 404 for API endpoints) or serves <code>dist/index.html</code> for all client routes.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q49</span> "How would you handle online payments for luxury services?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> By integrating <strong>Stripe or Razorpay</strong>. When a client clicks "Book Now", the backend creates a Payment Intent. The client completes the payment using Stripe Elements on the frontend. A secure backend webhook (<code>/api/webhooks/stripe</code>) listens for <code>payment_intent.succeeded</code> and updates the booking status to <code>'Confirmed'</code>.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q50</span> "What are the key differences between SQL (Relational) and NoSQL (MongoDB) for a booking platform?"</div>
+    <div class="qa-answer"><strong>Answer:</strong> A booking system relies heavily on structured relationships (Users &rarr; Bookings &rarr; Services &rarr; Categories) and ACID transactions to guarantee data integrity and prevent orphan records. MySQL enforces strict foreign keys and relational schema, whereas NoSQL is schema-less and requires manual application-level referential integrity management.</div>
+  </div>
+
+  <h2 class="sub-heading">Category E: HR & Behavioral Questions (Q51 - Q60+)</h2>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q51</span> Tell me about yourself and why you built LuxeHome.</div>
+    <div class="qa-answer"><strong>Answer:</strong> "I am a full-stack web developer passionate about engineering high-performance, user-centric web applications. I built LuxeHome to solve a real-world problem: providing a seamless, luxury digital experience for scheduling premium home maintenance. It allowed me to implement modern React 19 architecture, secure backend API design with Express and MySQL, and complete cloud deployment pipelines on Render."</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q52</span> What were your key technical learnings from this project?</div>
+    <div class="qa-answer"><strong>Answer:</strong> "I mastered full-stack integration—specifically unified SPA asset serving in Express, relational database modeling with foreign key constraints, connection pooling with <code>mysql2</code>, password hashing with bcrypt, cloud database configuration over SSL, and writing automated end-to-end integration test suites."</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q53</span> If you had two more weeks, what features would you implement next?</div>
+    <div class="qa-answer"><strong>Answer:</strong> "I would implement: (1) Stripe payment gateway integration, (2) Real-time push notifications via WebSockets, (3) JWT authentication with refresh token cookies, and (4) An interactive customer review and rating system for each completed service."</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question"><span class="qa-q-badge">Q54</span> How do you ensure your code is clean, readable, and maintainable?</div>
+    <div class="qa-answer"><strong>Answer:</strong> "By adhering to modular folder architecture, separating concerns between UI components and API configuration (<code>api.js</code>), writing descriptive variable and function names, utilizing parameterized reusable database queries, and maintaining comprehensive documentation and automated test suites."</div>
+  </div>
+</div>
+
+<!-- SECTION 11: QUICK REVISION CHEAT SHEET -->
+<div class="section section-break">
+  <h1 class="section-heading">11. Final Quick-Revision Cheat Sheet</h1>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title"><span class="badge badge-gold">Quick Facts</span> Project Summary</div>
+      <ul style="font-size: 11px; margin-left: 14px;">
+        <li><strong>Frontend:</strong> React 19, Vite 8, Vanilla Glassmorphism CSS.</li>
+        <li><strong>Backend:</strong> Node.js, Express 4, <code>mysql2/pool</code>, <code>bcryptjs</code>, <code>cors</code>.</li>
+        <li><strong>Database:</strong> MySQL 8 / TiDB Cloud Serverless (5 tables).</li>
+        <li><strong>Deployment:</strong> Render Web Service + GitHub CI/CD.</li>
+        <li><strong>Default Admin:</strong> <code>admin</code> / <code>1234</code> (auto-seeded).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="badge badge-blue">Quick Commands</span> Key Scripts</div>
+      <ul style="font-size: 11px; margin-left: 14px;">
+        <li><code>npm run dev</code> &rarr; Starts Vite local development server.</li>
+        <li><code>npm run build</code> &rarr; Compiles production assets into <code>dist/</code>.</li>
+        <li><code>npm start</code> &rarr; Starts production Express server.</li>
+        <li><code>node backend/verify_deployment.js</code> &rarr; Local test suite.</li>
+        <li><code>node backend/test_production_url.js &lt;URL&gt;</code> &rarr; Live verification.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box emerald" style="margin-top: 10px;">
+    <strong>Interview Tip:</strong> When discussing LuxeHome, emphasize that you built both the client-facing booking experience and the administrative control dashboard, backed by a production-ready relational database schema with automated cloud deployment.
+  </div>
+
+  <div class="footer-note">
+    LuxeHome Project & Technical Interview Guide &bull; Designed for Full-Stack Software Engineering Interviews &bull; 2026
+  </div>
+</div>
+
+</body>
+</html>
