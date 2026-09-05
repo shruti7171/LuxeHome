@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LuxeHome Project - Complete Full-Stack & Interview Preparation Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.6;
+    font-size: 13.5px;
+  }
+
+  .cover-page {
+    page-break-after: always;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    color: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 30px;
+  }
+
+  .cover-header {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 20px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+  }
+
+  .cover-title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    background: linear-gradient(to right, #ffffff, #fbbf24, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+
+  .cover-subtitle {
+    font-size: 17px;
+    color: #cbd5e1;
+    font-weight: 400;
+    max-width: 650px;
+    line-height: 1.5;
+  }
+
+  .cover-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 30px 0;
+  }
+
+  .cover-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .cover-card h4 {
+    font-size: 13px;
+    color: #fbbf24;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .cover-card p {
+    font-size: 13px;
+    color: #e2e8f0;
+  }
+
+  .cover-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+
+  .section {
+    margin-bottom: 28px;
+    page-break-inside: avoid;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    border-left: 5px solid #d97706;
+    padding-left: 12px;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 16px 0 8px 0;
+  }
+
+  p {
+    margin-bottom: 10px;
+    color: #334155;
+  }
+
+  ul, ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    color: #334155;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 12.5px;
+  }
+
+  th, td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #cbd5e1;
+  }
+
+  th {
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background: #f8fafc;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .badge-admin {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+
+  .badge-client {
+    background: #e0e7ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+  }
+
+  .badge-success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .callout {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+
+  .callout-warning {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+  }
+
+  .callout-success {
+    background: #f0fdf4;
+    border-left-color: #22c55e;
+  }
+
+  pre, code {
+    font-family: 'JetBrains Mono', Consolas, monospace;
+  }
+
+  pre {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 11.5px;
+    overflow-x: auto;
+    margin: 10px 0;
+    line-height: 1.45;
+  }
+
+  p code, li code {
+    background: #f1f5f9;
+    color: #b91c1c;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .qa-block {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    page-break-inside: avoid;
+  }
+
+  .qa-question {
+    font-weight: 700;
+    font-size: 14px;
+    color: #0f172a;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .qa-tag {
+    background: #d97706;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .qa-answer {
+    color: #334155;
+    font-size: 13px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .feature-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fdfdfd;
+  }
+
+  .feature-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+  <div class="cover-header">
+    <span class="cover-badge">Interview Preparation & Project Handbook</span>
+    <h1 class="cover-title">LuxeHome – Premium Home Services Platform</h1>
+    <p class="cover-subtitle">A comprehensive, end-to-end full-stack web application designed for on-demand luxury home services with Role-Based Access Control, secure bcrypt authentication, and full administrative management.</p>
+  </div>
+
+  <div class="cover-grid">
+    <div class="cover-card">
+      <h4>Frontend Architecture</h4>
+      <p>React 19 + Vite, Glassmorphism UI design, Dynamic Single Page Application routing, responsive layout, modal dialogs, and real-time state management.</p>
+    </div>
+    <div class="cover-card">
+      <h4>Backend & API</h4>
+      <p>Node.js & Express REST API, <code>mysql2</code> connection pooling, parameterized query execution, role-based authorization middleware (RBAC), and IP logging.</p>
+    </div>
+    <div class="cover-card">
+      <h4>Database & Security</h4>
+      <p>MySQL Relational Database, <code>bcryptjs</code> salted password hashing (10 salt rounds), dual-identifier authentication, and strict SQL injection defenses.</p>
+    </div>
+    <div class="cover-card">
+      <h4>User Roles & RBAC</h4>
+      <p>Dedicated Client Experience vs Administrative Access Portal with Route Guards, Bookings approval/rejection, Service Provider assignment, and Analytics.</p>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span>Author / Candidate: Full-Stack Engineer</span>
+    <span>LuxeHome Project Master Reference Guide</span>
+  </div>
+</div>
+
+<!-- SECTION 1: PROJECT OVERVIEW & ARCHITECTURE -->
+<div class="section">
+  <h2>1. Executive Summary & Architecture Overview</h2>
+  <p><strong>LuxeHome</strong> is an enterprise-grade, luxury home service booking and management platform. It bridges high-end residential clients with certified service professionals across multiple domains including Cleaning, Interior Design, Plumbing, Smart Security, Garden Care, and HVAC.</p>
+
+  <div class="callout callout-success">
+    <strong>Key Architectural Highlight:</strong> The application enforces a strict separation between <strong>Client Services</strong> and <strong>Administrative Operations</strong> at both the database, backend API, and React frontend routing levels.
+  </div>
+
+  <h3>High-Level Architecture Diagram</h3>
+  <pre>
++-----------------------------------------------------------------------------------+
+|                                  CLIENT TIER                                      |
+|  React 19 (Vite) Single Page Application                                           |
+|  ├── AuthPage (Client Login, Client Register, Admin Portal Login)                 |
+|  ├── Client Experience (HomePage, Category View, Service Detail, MyBookings)      |
+|  └── Admin Portal (AdminDashboard: Overview, Bookings, Services, Users, RBAC)    |
++------------------------------------------+----------------------------------------+
+                                           | HTTP Requests (REST / JSON)
+                                           v
++-----------------------------------------------------------------------------------+
+|                                  SERVER TIER                                      |
+|  Node.js + Express.js API Server (Port 5000)                                       |
+|  ├── CORS & JSON Body Parsing Middleware                                          |
+|  ├── Authentication Subsystem (bcryptjs 10 Rounds, Dual Identifier Matching)      |
+|  ├── requireAdmin Middleware (x-user-role validation & Route Guards)              |
+|  └── REST Endpoints: /api/login, /api/signup, /api/services, /api/bookings, etc.  |
++------------------------------------------+----------------------------------------+
+                                           | mysql2 Connection Pool
+                                           v
++-----------------------------------------------------------------------------------+
+|                                 DATABASE TIER                                     |
+|  MySQL Relational Database (luxehome)                                             |
+|  ├── users (id, username, email, password_hash, role, created_at)                 |
+|  ├── categories (id, name, slug, description, image_url)                          |
+|  ├── services (id, category_id, title, description, full_description, price, ...) |
+|  ├── bookings (id, user_id, service_id, service_title, user_email, status, ...)   |
+|  └── login_logs (id, username, status, ip_address, login_time)                     |
++-----------------------------------------------------------------------------------+
+  </pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 2: AUTHENTICATION & ROLE-BASED ACCESS CONTROL (RBAC) -->
+<div class="section">
+  <h2>2. Authentication & Role-Based Access Control (RBAC)</h2>
+  <p>The authentication system is engineered around two core pillars: <strong>Security</strong> and <strong>Role Isolation</strong>.</p>
+
+  <div class="grid-2">
+    <div class="feature-box">
+      <h4><span class="badge badge-client">Client Role</span> (role = 'client')</h4>
+      <ul>
+        <li>Public self-registration enabled.</li>
+        <li>Always assigned <code>role = 'client'</code> on signup.</li>
+        <li>Can discover services, view details, and book services.</li>
+        <li>Isolated access: Can only view and cancel their own bookings (<code>/api/bookings/user/:userId</code>).</li>
+        <li>Forbidden from administrative routes and mutations.</li>
+      </ul>
+    </div>
+
+    <div class="feature-box">
+      <h4><span class="badge badge-admin">Admin Role</span> (role = 'admin')</h4>
+      <ul>
+        <li>No public admin self-registration (prevents unauthorized privilege escalation).</li>
+        <li>Pre-seeded secure account in database with bcrypt hash.</li>
+        <li>Accesses system through dedicated <strong>Admin Login</strong> portal.</li>
+        <li>Full CRUD on Services & Categories.</li>
+        <li>Full control over Bookings (Approve, Reject, In Progress, Complete).</li>
+        <li>User administration (Promote, Demote, Delete users).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>1. Secure Password Hashing (bcryptjs)</h3>
+  <p>All passwords are encrypted with bcrypt using a workload factor of <strong>10 salt rounds</strong> before any database insertion. Plaintext passwords are never stored.</p>
+  <pre>
+// Registration Endpoint (backend/server.js)
+app.post('/api/signup', async (req, res) => {
+    const { username, email, password } = req.body;
+    const trimmedUsername = username.trim();
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedPassword = password.trim();
+
+    // Secure bcrypt hashing
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(trimmedPassword, saltRounds);
+
+    // Hardcoded 'client' role protects against privilege escalation
+    const sql = 'INSERT INTO users (username, email, password_hash, role) VALUES (?, ?, ?, \'client\')';
+    db.query(sql, [trimmedUsername, trimmedEmail, hashedPassword], (err, results) => {
+        if (err && err.code === 'ER_DUP_ENTRY') {
+            return res.status(400).json({ success: false, message: 'Username or Email already exists' });
+        }
+        res.json({ success: true, message: 'User registered successfully', userId: results.insertId });
+    });
+});
+  </pre>
+
+  <h3>2. Dual Identifier Login & Case-Insensitive Credential Verification</h3>
+  <p>Users can seamlessly authenticate using <strong>either their registered Email Address OR their Username</strong>. The lookup executes a case-insensitive match against MySQL followed by asynchronous <code>bcrypt.compare()</code>.</p>
+  <pre>
+// Login Endpoint (backend/server.js)
+app.post('/api/login', (req, res) => {
+    const { username, email, password } = req.body;
+    const identifier = (username || email || '').trim();
+    const inputPassword = (password || '').trim();
+
+    // Dual-identifier lookup query
+    const sql = 'SELECT * FROM users WHERE LOWER(email) = LOWER(?) OR LOWER(username) = LOWER(?) LIMIT 1';
+    db.query(sql, [identifier, identifier], async (err, results) => {
+        if (err) return res.status(500).json({ error: err.message });
+        const user = results[0];
+
+        if (user && await bcrypt.compare(inputPassword, user.password_hash)) {
+            return res.json({
+                success: true,
+                user: { id: user.id, username: user.username, email: user.email, role: user.role }
+            });
+        }
+        res.status(401).json({ success: false, message: 'Invalid username/email or password' });
+    });
+});
+  </pre>
+
+  <h3>3. Backend Authorization Guard (<code>requireAdmin</code>)</h3>
+  <pre>
+const requireAdmin = (req, res, next) => {
+    const userRole = req.headers['x-user-role'];
+    if (userRole === 'admin') {
+        next();
+    } else {
+        res.status(403).json({ success: false, message: 'Access denied. Admins only.' });
+    }
+};
+  </pre>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 3: DATABASE SCHEMA & DESIGN -->
+<div class="section">
+  <h2>3. Relational Database Design & Schema</h2>
+  <p>The MySQL relational database <code>luxehome</code> is normalized with foreign keys and cascading delete constraints.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Table Name</th>
+        <th>Key Columns & Types</th>
+        <th>Constraints / Indexes</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong><code>users</code></strong></td>
+        <td><code>id (INT PK AI)</code><br><code>username (VARCHAR 255)</code><br><code>email (VARCHAR 255)</code><br><code>password_hash (VARCHAR 255)</code><br><code>role (VARCHAR 50)</code></td>
+        <td><code>UNIQUE(username)</code><br><code>UNIQUE(email)</code><br><code>DEFAULT role='client'</code></td>
+        <td>Stores authenticated accounts, roles, and bcrypt password hashes.</td>
+      </tr>
+      <tr>
+        <td><strong><code>categories</code></strong></td>
+        <td><code>id (INT PK AI)</code><br><code>name (VARCHAR 255)</code><br><code>slug (VARCHAR 255)</code><br><code>description (TEXT)</code><br><code>image_url (VARCHAR 511)</code></td>
+        <td><code>UNIQUE(slug)</code></td>
+        <td>Groups services into domains (Cleaning, HVAC, Plumbing, Interior, Security, Garden).</td>
+      </tr>
+      <tr>
+        <td><strong><code>services</code></strong></td>
+        <td><code>id (INT PK AI)</code><br><code>category_id (INT FK)</code><br><code>title (VARCHAR 255)</code><br><code>price (VARCHAR 50)</code><br><code>duration (VARCHAR 100)</code><br><code>image_url (VARCHAR 511)</code></td>
+        <td><code>FOREIGN KEY -> categories(id) ON DELETE CASCADE</code></td>
+        <td>Catalog of luxury services with rich descriptions, pricing, and timing.</td>
+      </tr>
+      <tr>
+        <td><strong><code>bookings</code></strong></td>
+        <td><code>id (INT PK AI)</code><br><code>user_id (INT)</code><br><code>service_id (INT FK)</code><br><code>service_title (VARCHAR 255)</code><br><code>user_email (VARCHAR 255)</code><br><code>status (VARCHAR 50)</code></td>
+        <td><code>FOREIGN KEY -> services(id) ON DELETE SET NULL</code><br><code>DEFAULT status='Pending'</code></td>
+        <td>Tracks customer bookings and lifecycle state (Pending, Confirmed, Completed, Cancelled).</td>
+      </tr>
+      <tr>
+        <td><strong><code>login_logs</code></strong></td>
+        <td><code>id (INT PK AI)</code><br><code>username (VARCHAR 255)</code><br><code>status (VARCHAR 50)</code><br><code>ip_address (VARCHAR 45)</code><br><code>login_time (TIMESTAMP)</code></td>
+        <td>Audit Log</td>
+        <td>Security audit log recording all login attempts, success/failure status, and client IP.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 4: API ENDPOINT REFERENCE -->
+<div class="section">
+  <h2>4. Complete REST API Reference</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Access Level</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-success">POST</span></td>
+        <td><code>/api/signup</code></td>
+        <td>Public</td>
+        <td>Registers a new client with bcrypt password hashing.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-success">POST</span></td>
+        <td><code>/api/login</code></td>
+        <td>Public</td>
+        <td>Authenticates client or admin using email/username + password.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-client">GET</span></td>
+        <td><code>/api/categories</code></td>
+        <td>Public / Client</td>
+        <td>Retrieves all service categories.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-client">GET</span></td>
+        <td><code>/api/services</code></td>
+        <td>Public / Client</td>
+        <td>Retrieves all catalog services with category names.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-client">GET</span></td>
+        <td><code>/api/services/:slug</code></td>
+        <td>Public / Client</td>
+        <td>Retrieves services filtered by category slug.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-client">POST</span></td>
+        <td><code>/api/bookings</code></td>
+        <td>Client</td>
+        <td>Creates a new service booking for a user.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-client">GET</span></td>
+        <td><code>/api/bookings/user/:userId</code></td>
+        <td>Client / Admin</td>
+        <td>Fetches all bookings specific to a single user.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">GET</span></td>
+        <td><code>/api/bookings</code></td>
+        <td>Admin Only</td>
+        <td>Fetches all bookings across all clients for management.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">PUT</span></td>
+        <td><code>/api/bookings/:id</code></td>
+        <td>Admin Only</td>
+        <td>Updates booking status (Pending, Confirmed, Completed, Cancelled).</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">POST</span></td>
+        <td><code>/api/services</code></td>
+        <td>Admin Only</td>
+        <td>Creates a new service item in the catalog.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">PUT</span></td>
+        <td><code>/api/services/:id</code></td>
+        <td>Admin Only</td>
+        <td>Edits service title, description, price, duration, image.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">DELETE</span></td>
+        <td><code>/api/services/:id</code></td>
+        <td>Admin Only</td>
+        <td>Deletes a service item permanently.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">GET</span></td>
+        <td><code>/api/users</code></td>
+        <td>Admin Only</td>
+        <td>Retrieves all registered users with role information.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">PUT</span></td>
+        <td><code>/api/users/:id/role</code></td>
+        <td>Admin Only</td>
+        <td>Promotes or demotes user role between client and admin.</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-admin">DELETE</span></td>
+        <td><code>/api/users/:id</code></td>
+        <td>Admin Only</td>
+        <td>Deletes a user account permanently.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 5: TOP INTERVIEW QUESTIONS & MODEL ANSWERS -->
+<div class="section">
+  <h2>5. Top Technical Interview Questions & Answers</h2>
+
+  <div class="qa-block">
+    <div class="qa-question">
+      <span class="qa-tag">Q1</span>
+      Can you explain the overall architecture and tech stack of LuxeHome?
+    </div>
+    <div class="qa-answer">
+      <strong>Answer:</strong> LuxeHome is built on a 3-tier architecture:
+      <ul>
+        <li><strong>Frontend:</strong> React 19 bootstrapped with Vite. It features a custom luxury glassmorphic theme in vanilla CSS, responsive modular components, and state-driven route management with route protection guards.</li>
+        <li><strong>Backend:</strong> A lightweight REST API built with Node.js and Express.js, featuring CORS, middleware-based RBAC authorization, and IP-auditing login logs.</li>
+        <li><strong>Database:</strong> MySQL with connection pooling via <code>mysql2</code>, featuring normalized tables, foreign key constraints with cascade deletes, and unique constraint validations.</li>
+        <li><strong>Security:</strong> Password hashing using <code>bcryptjs</code> with 10 salt rounds, parameterized SQL queries preventing SQL injection, and strict role isolation between clients and administrators.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question">
+      <span class="qa-tag">Q2</span>
+      What authentication bug did you encounter and how did you resolve it?
+    </div>
+    <div class="qa-answer">
+      <strong>Answer:</strong> 
+      <br><strong>Problem:</strong> When users registered with an email, username, and password, subsequent logins with their email address failed with <code>401 Unauthorized</code>. The root cause was that the backend SQL query strictly queried <code>WHERE username = ? AND password_hash = ?</code>, and passwords were being compared in plain text.
+      <br><strong>Solution:</strong>
+      <ol>
+        <li>Integrated <code>bcryptjs</code> to hash passwords during registration using <code>bcrypt.hash(password, 10)</code>.</li>
+        <li>Refactored <code>/api/login</code> to perform a dual-identifier lookup: <code>SELECT * FROM users WHERE LOWER(email) = LOWER(?) OR LOWER(username) = LOWER(?) LIMIT 1</code>.</li>
+        <li>Used <code>await bcrypt.compare(inputPassword, user.password_hash)</code> to validate credentials safely and added automatic legacy password migration.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question">
+      <span class="qa-tag">Q3</span>
+      How is Role-Based Access Control (RBAC) enforced across the stack?
+    </div>
+    <div class="qa-answer">
+      <strong>Answer:</strong> RBAC is enforced at 3 distinct layers:
+      <ul>
+        <li><strong>Registration Level:</strong> <code>/api/signup</code> hardcodes <code>role = 'client'</code>, preventing any user from injecting an <code>admin</code> role during public signups.</li>
+        <li><strong>Backend Middleware:</strong> Administrative endpoints are guarded by <code>requireAdmin</code> middleware which validates the user's role header and returns <code>403 Forbidden</code> for clients.</li>
+        <li><strong>Frontend Route Guard:</strong> In <code>App.jsx</code>, if an unauthenticated user or client attempts to load the Admin Dashboard, state-based route guards immediately redirect them to Home.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question">
+      <span class="qa-tag">Q4</span>
+      How do you prevent SQL Injection and protect database integrity?
+    </div>
+    <div class="qa-answer">
+      <strong>Answer:</strong> 
+      All database interactions utilize <strong>parameterized queries</strong> (e.g. <code>db.query('SELECT * FROM users WHERE email = ?', [email])</code>). This ensures user inputs are treated strictly as data literals and never interpreted as executable SQL code. Furthermore, relational integrity is maintained using Foreign Keys (e.g. cascading deletes on services when a category is removed, and <code>ON DELETE SET NULL</code> for bookings when a service is removed).
+    </div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-question">
+      <span class="qa-tag">Q5</span>
+      How would you scale this application for enterprise production?
+    </div>
+    <div class="qa-answer">
+      <strong>Answer:</strong> 
+      <ol>
+        <li><strong>Authentication:</strong> Implement JWT (JSON Web Tokens) with short-lived access tokens and HTTP-only secure refresh tokens stored in cookies.</li>
+        <li><strong>Caching:</strong> Introduce Redis to cache static service catalogs and category queries to reduce database read load.</li>
+        <li><strong>Payments:</strong> Integrate Stripe or PayPal webhooks for end-to-end automated payment capture and refund processing.</li>
+        <li><strong>Real-Time Updates:</strong> Use WebSockets (Socket.io) for real-time booking status notifications to clients and admins.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 6: CREDENTIALS & DEMO CHEATSHEET -->
+<div class="section">
+  <h2>6. Quick Demo & Credentials Cheatsheet</h2>
+
+  <div class="grid-2">
+    <div class="feature-box">
+      <h4><span class="badge badge-admin">Administrator Credentials</span></h4>
+      <p><strong>Username:</strong> <code>admin</code></p>
+      <p><strong>Email:</strong> <code>admin@gmail.com</code></p>
+      <p><strong>Password:</strong> <code>1234</code></p>
+      <p><strong>Login Path:</strong> Select <em>Admin Login</em> tab on Auth screen.</p>
+      <p><strong>Dashboard Capabilities:</strong> KPI metrics overview, real-time booking status changes, service creation/editing, and user management.</p>
+    </div>
+
+    <div class="feature-box">
+      <h4><span class="badge badge-client">Client Demo Credentials</span></h4>
+      <p><strong>Username:</strong> <code>testuser</code></p>
+      <p><strong>Email:</strong> <code>testuser@gmail.com</code></p>
+      <p><strong>Password:</strong> <code>password123</code></p>
+      <p><strong>Or Register:</strong> Click <em>Register</em> to create any new client account.</p>
+      <p><strong>Client Capabilities:</strong> Browse services by category, book appointments, track personal bookings in <em>My Bookings</em>.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 24px; text-align: center; color: #64748b; font-size: 12px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+    <strong>LuxeHome Project Master Reference Guide</strong> • Prepared for Full-Stack / Software Engineering Interviews
+  </div>
+</div>
+
+</body>
+</html>

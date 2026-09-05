@@ -1,0 +1,101 @@
+.plumbing-page {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+}
+
+.plumbing-header {
+  padding: 140px 0 60px;
+  text-align: center;
+}
+
+.plumbing-header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.plumbing-header p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.plumbing-grid-section {
+  padding-bottom: 100px;
+}
+
+.plumbing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.plumbing-block {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+}
+
+.plumbing-block:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.plumbing-img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 65%;
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.plumbing-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.plumbing-block:hover .plumbing-img {
+  transform: scale(1.05);
+}
+
+.plumbing-info {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plumbing-info h3 {
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+.plumbing-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.plumbing-info .btn-secondary {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .plumbing-header h1 {
+    font-size: 2.5rem;
+  }
+  .plumbing-grid {
+    grid-template-columns: 1fr;
+  }
+}
