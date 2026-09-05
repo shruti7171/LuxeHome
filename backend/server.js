@@ -37,18 +37,24 @@ app.use(express.json());
 // Database Connection Configuration
 const getDbConfig = () => {
     if (process.env.DATABASE_URL || process.env.MYSQL_URL) {
-        const dbUrl = new URL(process.env.DATABASE_URL || process.env.MYSQL_URL);
-        return {
-            host: dbUrl.hostname,
-            port: dbUrl.port ? parseInt(dbUrl.port, 10) : 3306,
-            user: dbUrl.username,
-            password: dbUrl.password,
-            database: dbUrl.pathname.replace(/^\//, ''),
-            ssl: process.env.DB_SSL === 'true' || dbUrl.searchParams.get('ssl') ? { rejectUnauthorized: false } : undefined,
-            waitForConnections: true,
-            connectionLimit: 10,
-            queueLimit: 0
-        };
+        try {
+            const rawUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
+            const dbUrl = new URL(rawUrl);
+            const dbName = dbUrl.pathname.replace(/^\//, '') || process.env.DB_NAME || 'test';
+            return {
+                host: dbUrl.hostname,
+                port: dbUrl.port ? parseInt(dbUrl.port, 10) : 3306,
+                user: decodeURIComponent(dbUrl.username || 'root'),
+                password: decodeURIComponent(dbUrl.password || ''),
+                database: dbName,
+                ssl: process.env.DB_SSL === 'false' ? undefined : { rejectUnauthorized: false },
+                waitForConnections: true,
+                connectionLimit: 10,
+                queueLimit: 0
+            };
+        } catch (e) {
+            console.error('Failed to parse DATABASE_URL, falling back to individual variables:', e.message);
+        }
     }
 
     return {
